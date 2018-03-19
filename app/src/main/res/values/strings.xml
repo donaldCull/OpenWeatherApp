@@ -19,12 +19,12 @@
         <item value="imperial">Imperial</item>
     </string-array>
     <string-array name="languages">
-        <item value="en">English</item>
-        <item value="ar">Arabic</item>
-        <item value="bg">Bulgarian</item>
-        <item value="ca">Catalan</item>
-        <item value="ru">Russian</item>
-        <item value="ja">Japanese</item>
+        <item value="en">en</item>
+        <item value="ar">ar</item>
+        <item value="bg">bg</item>
+        <item value="ca">ca</item>
+        <item value="ru">ru</item>
+        <item value="ja">ja</item>
     </string-array>
     <string-array name="cities">
         <item value="townsville">Townsville</item>

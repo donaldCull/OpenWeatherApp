@@ -1,6 +1,8 @@
 package com.hfad.openweatherapp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,8 +18,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
+    public static final String USER_PREFERENCES = "userPrefs" ;
+    SharedPreferences sharedpreferences;
+    public static final String City = "cityKey";
+    public static final String Format = "formatKey";
+    public static final String Lang = "langKey";
+
     Weather weather;
-    TextView textView;
+    TextView textView; //possibly redundant
     String city = "Townsville";
     String weatherFormat = "metric";
     String language = "en";
@@ -29,6 +37,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        sharedpreferences = getSharedPreferences(USER_PREFERENCES, Context.MODE_PRIVATE);
+        city = sharedpreferences.getString(City, "Townsville");
+        weatherFormat = sharedpreferences.getString(Format, "metric");
+        language = sharedpreferences.getString(Lang, "en");
+
         textView = findViewById(R.id.text);
         weather = new Weather();
         requestWeather();
