@@ -1,7 +1,9 @@
 package com.hfad.openweatherapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -18,8 +20,9 @@ public class MainActivity extends AppCompatActivity {
     TextView textView;
     String city = "Townsville";
     String weatherFormat = "metric";
+    String language = "en";
     String api = "497c54db9e77b4b34a094c92658d9d20";
-    String urlTemplate = "http://api.openweathermap.org/data/2.5/weather?q=%s&units=%s&APPID=%s";
+    String urlTemplate = "http://api.openweathermap.org/data/2.5/weather?q=%s&units=%s&lang=%s&APPID=%s";
     String requestUrl;
     RequestQueue queue;
     @Override
@@ -31,9 +34,14 @@ public class MainActivity extends AppCompatActivity {
         requestWeather();
     }
 
+    public void onPressSettings(View view){
+        Intent intent = new Intent(this, SettingsActivity.class);
+        startActivity(intent);
+    }
+
     private void requestWeather() {
         queue = Volley.newRequestQueue(this);
-        requestUrl = String.format(urlTemplate, city, weatherFormat, api);
+        requestUrl = String.format(urlTemplate, city, weatherFormat, language, api);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, requestUrl, null, new Response.Listener<JSONObject>() {
                     @Override

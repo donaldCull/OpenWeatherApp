@@ -9,4 +9,31 @@
     <string name="windSpeedValue">None</string>
     <string name="windspeedLabel">Windspeed</string>
     <string name="windspeedValue">0</string>
+    <string name="settingsButtonLabel">Settings</string>
+    <string name="settingsLabel">Settings</string>
+    <string name="returnLabel">Return</string>
+    <string name="languageLabel">Language</string>
+    <string name="number_format_Label">Number Format</string>
+    <string-array name="number_format_values">
+        <item value="metric">Metric</item>
+        <item value="imperial">Imperial</item>
+    </string-array>
+    <string-array name="languages">
+        <item value="en">English</item>
+        <item value="ar">Arabic</item>
+        <item value="bg">Bulgarian</item>
+        <item value="ca">Catalan</item>
+        <item value="ru">Russian</item>
+        <item value="ja">Japanese</item>
+    </string-array>
+    <string-array name="cities">
+        <item value="townsville">Townsville</item>
+        <item value="brisbane">Brisbane</item>
+        <item value="sydney">Sydney</item>
+        <item value="melbourne">Melbourne</item>
+        <item value="adelaide">Adelaide</item>
+        <item value="perth">Perth</item>
+        <item value="hobart">Hobart</item>
+        <item value="darwin">Darwin</item>
+    </string-array>
 </resources>
