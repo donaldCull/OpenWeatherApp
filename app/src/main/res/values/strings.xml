@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">OpenWeatherApp</string>
+    <string name="select_a_city">Select a city</string>
+    <string name="temperature">Temperature</string>
+    <string name="tempValue">0</string>
+    <string name="humidityLabel">Humidity</string>
+    <string name="humidityValue">0</string>
+    <string name="descriptionLabel">Description</string>
+    <string name="windSpeedValue">None</string>
+    <string name="windspeedLabel">Windspeed</string>
+    <string name="windspeedValue">0</string>
 </resources>

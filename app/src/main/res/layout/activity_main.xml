@@ -10,10 +10,91 @@
         android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_marginStart="16dp"
+        android:text="@string/temperature"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tempValue"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tempValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="120dp"
+        android:text="@string/tempValue"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintBottom_toTopOf="@+id/humidityValue"
+        app:layout_constraintStart_toEndOf="@+id/text"
+        app:layout_constraintTop_toBottomOf="@+id/cityName" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/humidityLabel"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintBaseline_toBaselineOf="@+id/humidityValue"
+        app:layout_constraintEnd_toEndOf="@+id/text" />
+
+    <TextView
+        android:id="@+id/humidityValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/humidityValue"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintBottom_toTopOf="@+id/descriptionValue"
+        app:layout_constraintStart_toStartOf="@+id/tempValue"
+        app:layout_constraintTop_toBottomOf="@+id/tempValue" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/descriptionLabel"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintBaseline_toBaselineOf="@+id/descriptionValue"
+        app:layout_constraintEnd_toEndOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/windspeedLabel"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintBaseline_toBaselineOf="@+id/windSpeedValue"
+        app:layout_constraintEnd_toEndOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/descriptionValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/windSpeedValue"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintBottom_toTopOf="@+id/windSpeedValue"
+        app:layout_constraintStart_toStartOf="@+id/humidityValue"
+        app:layout_constraintTop_toBottomOf="@+id/humidityValue" />
+
+    <TextView
+        android:id="@+id/windSpeedValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="120dp"
+        android:text="@string/windspeedValue"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/descriptionValue"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionValue" />
+
+    <TextView
+        android:id="@+id/cityName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/select_a_city"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
