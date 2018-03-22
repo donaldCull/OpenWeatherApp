@@ -3,6 +3,7 @@ package com.hfad.openweatherapp;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -23,12 +24,11 @@ public class MainActivity extends AppCompatActivity {
     public static final String City = "cityKey";
     public static final String Format = "formatKey";
     public static final String Lang = "langKey";
-
     Weather weather;
-    TextView textView; //possibly redundant
     String city = "Townsville";
     String weatherFormat = "metric";
     String language = "en";
+    String metricWindSpeed = "mps", imperialWindSpeed = "mph";
     String api = "497c54db9e77b4b34a094c92658d9d20";
     String urlTemplate = "http://api.openweathermap.org/data/2.5/weather?q=%s&units=%s&lang=%s&APPID=%s";
     String requestUrl;
@@ -41,10 +41,10 @@ public class MainActivity extends AppCompatActivity {
         city = sharedpreferences.getString(City, "Townsville");
         weatherFormat = sharedpreferences.getString(Format, "metric");
         language = sharedpreferences.getString(Lang, "en");
-
-        textView = findViewById(R.id.text);
         weather = new Weather();
         requestWeather();
+
+        ConstraintLayout constraintLayout = findViewById(R.id.constraintLayout);
     }
 
     public void onPressSettings(View view){
@@ -102,7 +102,12 @@ public class MainActivity extends AppCompatActivity {
         tempValue.setText(getString(R.string.tempValue, weather.getTemp()));
         humidValue.setText(getString(R.string.humidityValue, weather.getHumidity(), "%"));
         descriptionValue.setText(weather.getDescription());
-        windValue.setText(weather.getWindSpeed());
+        if (weatherFormat.equals("Metric")) {
+            windValue.setText(getString(R.string.windspeedValue, weather.getWindSpeed(), metricWindSpeed));
+        }
+        else {
+            windValue.setText(getString(R.string.windspeedValue, weather.getWindSpeed(), imperialWindSpeed));
+        }
     }
 
 }

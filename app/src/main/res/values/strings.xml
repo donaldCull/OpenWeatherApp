@@ -6,18 +6,20 @@
     <string name="humidityLabel">Humidity</string>
     <string name="humidityValue">%s%s</string>
     <string name="descriptionLabel">Description</string>
-    <string name="windSpeedValue">None</string>
+    <string name="windSpeedValue">%s%s</string>
     <string name="windspeedLabel">Windspeed</string>
-    <string name="windspeedValue">0</string>
+    <string name="windspeedValue">%s%s</string>
     <string name="settingsButtonLabel">Settings</string>
     <string name="settingsLabel">Settings</string>
     <string name="returnLabel">Return</string>
     <string name="languageLabel">Language</string>
     <string name="number_format_Label">Number Format</string>
+
     <string-array name="number_format_values">
         <item value="metric">Metric</item>
         <item value="imperial">Imperial</item>
     </string-array>
+
     <string-array name="languages">
         <item value="en">en</item>
         <item value="ar">ar</item>
