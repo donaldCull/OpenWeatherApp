@@ -2,9 +2,9 @@
     <string name="app_name">OpenWeatherApp</string>
     <string name="select_a_city">Select a city</string>
     <string name="temperature">Temperature</string>
-    <string name="tempValue">0</string>
+    <string name="tempValue">%s°</string>
     <string name="humidityLabel">Humidity</string>
-    <string name="humidityValue">0</string>
+    <string name="humidityValue">%s%s</string>
     <string name="descriptionLabel">Description</string>
     <string name="windSpeedValue">None</string>
     <string name="windspeedLabel">Windspeed</string>
@@ -35,5 +35,7 @@
         <item value="perth">Perth</item>
         <item value="hobart">Hobart</item>
         <item value="darwin">Darwin</item>
+        <item value="london">London</item>
+        <item value="copenhagen">Copenhagen</item>
     </string-array>
 </resources>

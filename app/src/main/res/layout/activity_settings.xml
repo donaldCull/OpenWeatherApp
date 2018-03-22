@@ -71,6 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:entries="@array/cities"
+        android:isScrollContainer="false"
         android:keepScreenOn="false"
         android:scrollbarAlwaysDrawVerticalTrack="false"
         app:layout_constraintBottom_toTopOf="@+id/formatSpinner"

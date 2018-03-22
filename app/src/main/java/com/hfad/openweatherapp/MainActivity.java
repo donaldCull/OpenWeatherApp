@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void insertWeatherData(){
-
+// todo change wind speed abbreviation if the number format is metre per second mps or imperial mph mile per hour
         TextView cityLabel = findViewById(R.id.cityName);
         TextView tempValue = findViewById(R.id.tempValue);
         TextView humidValue = findViewById(R.id.humidityValue);
@@ -99,8 +99,8 @@ public class MainActivity extends AppCompatActivity {
         TextView windValue = findViewById(R.id.windSpeedValue);
 
         cityLabel.setText(weather.getCity());
-        tempValue.setText(weather.getTemp());
-        humidValue.setText(weather.getHumidity());
+        tempValue.setText(getString(R.string.tempValue, weather.getTemp()));
+        humidValue.setText(getString(R.string.humidityValue, weather.getHumidity(), "%"));
         descriptionValue.setText(weather.getDescription());
         windValue.setText(weather.getWindSpeed());
     }
