@@ -4,8 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.constraint.ConstraintLayout;
+import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 import com.android.volley.Request;
@@ -18,8 +21,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements GestureDetector.OnGestureListener {
     public static final String USER_PREFERENCES = "userPrefs" ;
+    ConstraintLayout layout;
     SharedPreferences sharedpreferences;
     public static final String City = "cityKey";
     public static final String Format = "formatKey";
@@ -33,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     String urlTemplate = "http://api.openweathermap.org/data/2.5/weather?q=%s&units=%s&lang=%s&APPID=%s";
     String requestUrl;
     RequestQueue queue;
+    private GestureDetectorCompat detector;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,8 +49,8 @@ public class MainActivity extends AppCompatActivity {
         language = sharedpreferences.getString(Lang, "en");
         weather = new Weather();
         requestWeather();
-
-        ConstraintLayout constraintLayout = findViewById(R.id.constraintLayout);
+        layout = findViewById(R.id.constraintLayout);
+        detector = new GestureDetectorCompat(this, this);
     }
 
     public void onPressSettings(View view){
@@ -91,7 +97,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void insertWeatherData(){
-// todo change wind speed abbreviation if the number format is metre per second mps or imperial mph mile per hour
         TextView cityLabel = findViewById(R.id.cityName);
         TextView tempValue = findViewById(R.id.tempValue);
         TextView humidValue = findViewById(R.id.humidityValue);
@@ -99,9 +104,12 @@ public class MainActivity extends AppCompatActivity {
         TextView windValue = findViewById(R.id.windSpeedValue);
 
         cityLabel.setText(weather.getCity());
+        // todo change temperature format based on selection
         tempValue.setText(getString(R.string.tempValue, weather.getTemp()));
         humidValue.setText(getString(R.string.humidityValue, weather.getHumidity(), "%"));
         descriptionValue.setText(weather.getDescription());
+
+        // change the speed measurement format
         if (weatherFormat.equals("Metric")) {
             windValue.setText(getString(R.string.windspeedValue, weather.getWindSpeed(), metricWindSpeed));
         }
@@ -110,4 +118,47 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    ////////////////////////////// Gestures /////////////////////////////////////
+
+    @Override
+    public boolean onDown(MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override
+    public void onShowPress(MotionEvent motionEvent) {
+
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) {
+        return false;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent motionEvent) {
+
+    }
+
+    @Override
+    public boolean onFling(MotionEvent startEvent, MotionEvent endEvent, float v, float v1) {
+        // left to right
+        if (endEvent.getX() > startEvent.getX()){
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        detector.onTouchEvent(event);
+        return super.onTouchEvent(event);
+    }
 }
