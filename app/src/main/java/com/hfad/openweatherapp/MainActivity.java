@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     String weatherFormat = "metric";
     String language = "en";
     String metricWindSpeed = "mps", imperialWindSpeed = "mph";
-    String api = "497c54db9e77b4b34a094c92658d9d20";
+    String api = "enter your api key here";
     String urlTemplate = "http://api.openweathermap.org/data/2.5/weather?q=%s&units=%s&lang=%s&APPID=%s";
     String requestUrl;
     RequestQueue queue;
